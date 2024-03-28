@@ -1,4 +1,5 @@
-﻿using LandPlot.Models;
+﻿using LandPlot.Interfaces;
+using LandPlot.Models;
 using LandPlot.Properties;
 
 using Proj4Net;
@@ -9,20 +10,19 @@ using System.Xml.Linq;
 
 namespace LandPlot.Services;
 
-internal class CoordinateTransform
+internal class CoordinateTransform : ICoordinateTransformer
 {
     private const string TargetCoordinateSystemKey = "EPSG:4326";
     private const string TargetCoordinateSystemParameters = "+proj=longlat +ellps=WGS84 +datum=WGS84 +units=degrees";
 
-    private readonly Dictionary<string, XElement> _coordinateSystems;
+    private readonly Dictionary<string, XElement> _coordinateSystems = new();
 
     public CoordinateTransform()
     {
-        _coordinateSystems = new Dictionary<string, XElement>();
         LoadSystems();
     }
 
-    private void LoadSystems()
+    public void LoadSystems()
     {
         var root = XElement.Parse(Resources.CoordinateSystems);
 
@@ -72,10 +72,10 @@ internal class CoordinateTransform
 
         coordinateTransform.Transform(sourcePoint, targetPoint);
 
-        return new Coordinate 
-        { 
-            X = targetPoint.X, 
-            Y = targetPoint.Y 
+        return new Coordinate
+        {
+            X = targetPoint.X,
+            Y = targetPoint.Y
         };
     }
 }

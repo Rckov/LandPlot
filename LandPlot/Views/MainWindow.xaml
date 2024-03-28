@@ -45,11 +45,11 @@
 
             <StackPanel Grid.Row="0">
                <Label Content="Система координат:" />
-               <ComboBox Margin="0,0,0,10" ItemsSource="{Binding Systems}" />
+               <ComboBox Margin="0,0,0,10" ItemsSource="{Binding CoordinateSystems}" />
 
                <Label Content="Контуры:" />
-               <ListBox Height="150" Margin="0,0,0,10" 
-                        ItemsSource="{Binding Contours}" 
+               <ListBox Height="150" Margin="0,0,0,10"
+                        ItemsSource="{Binding Contours}"
                         SelectedItem="{Binding SelectedContour, Mode=TwoWay}">
 
                   <ListBox.ItemTemplate>
@@ -62,7 +62,7 @@
                <Label Content="Координаты:" />
             </StackPanel>
 
-            <DataGrid Grid.Row="1" Margin="0,0,0,5"  />
+            <DataGrid Grid.Row="1" Margin="0,0,0,5" />
             <Button Content="Чертеж" Grid.Row="2" />
          </Grid>
 

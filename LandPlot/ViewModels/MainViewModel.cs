@@ -1,4 +1,5 @@
-﻿using LandPlot.Models;
+﻿using LandPlot.Interfaces;
+using LandPlot.Models;
 using LandPlot.Services;
 using LandPlot.ViewModels.Base;
 
@@ -10,6 +11,13 @@ namespace LandPlot.ViewModels;
 
 internal class MainViewModel : BaseViewModel
 {
+    private readonly ICoordinateTransformer _transform;
+
+    public MainViewModel()
+    {
+        _transform = new CoordinateTransform();
+    }
+
     private Contour _selectedContour;
 
     public Contour SelectedContour
@@ -33,4 +41,6 @@ internal class MainViewModel : BaseViewModel
         get => _contours;
         set => Set(ref _contours, value);
     }
+
+    public IEnumerable<string> CoordinateSystems => _transform.GetCoordinateSystems();
 }

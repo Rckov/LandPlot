@@ -62,6 +62,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Interfaces\ICoordinateDrawing.cs" />
+    <Compile Include="Interfaces\ICoordinateTransformer.cs" />
     <Compile Include="Models\Contour.cs" />
     <Compile Include="Models\Coordinate.cs" />
     <Compile Include="Services\CoordinateDrawing.cs" />
