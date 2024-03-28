@@ -1,0 +1,76 @@
+﻿<Window x:Class="LandPlot.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:LandPlot.ViewModels"
+        Title="LandPlot" Height="550" Width="800" WindowStartupLocation="CenterScreen">
+
+   <Window.DataContext>
+      <vm:MainViewModel />
+   </Window.DataContext>
+
+   <Window.Resources>
+      <Style TargetType="{x:Type MenuItem}">
+         <Setter Property="Padding" Value="4,1,4,1" />
+      </Style>
+      <Style TargetType="{x:Type Label}">
+         <Setter Property="Padding" Value="0,0,0,2" />
+      </Style>
+   </Window.Resources>
+
+   <DockPanel>
+      <Menu DockPanel.Dock="Top" BorderBrush="LightGray" BorderThickness="0,0,0,1">
+         <MenuItem Header="Импорт" />
+         <MenuItem Header="Экспорт" />
+         <MenuItem Header="Сохранить чертеж" />
+         <MenuItem Header="Справка" />
+      </Menu>
+
+      <StatusBar DockPanel.Dock="Bottom" BorderBrush="LightGray" BorderThickness="0,1,0,0">
+         <StatusBarItem Content="Статус" HorizontalAlignment="Left" />
+      </StatusBar>
+
+      <Grid>
+         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="180" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+         </Grid.ColumnDefinitions>
+
+         <Grid Grid.Column="0" Margin="5">
+            <Grid.RowDefinitions>
+               <RowDefinition Height="Auto" />
+               <RowDefinition />
+               <RowDefinition Height="20" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0">
+               <Label Content="Система координат:" />
+               <ComboBox Margin="0,0,0,10" ItemsSource="{Binding Systems}" />
+
+               <Label Content="Контуры:" />
+               <ListBox Height="150" Margin="0,0,0,10" 
+                        ItemsSource="{Binding Contours}" 
+                        SelectedItem="{Binding SelectedContour, Mode=TwoWay}">
+
+                  <ListBox.ItemTemplate>
+                     <DataTemplate>
+                        <TextBlock Text="{Binding Name}" />
+                     </DataTemplate>
+                  </ListBox.ItemTemplate>
+               </ListBox>
+
+               <Label Content="Координаты:" />
+            </StackPanel>
+
+            <DataGrid Grid.Row="1" Margin="0,0,0,5"  />
+            <Button Content="Чертеж" Grid.Row="2" />
+         </Grid>
+
+         <Border Grid.Column="1" VerticalAlignment="Stretch" BorderBrush="LightGray" BorderThickness="0.5" />
+
+         <Grid Grid.Column="2">
+            <Canvas Width="450" Height="450" VerticalAlignment="Center" HorizontalAlignment="Center" />
+         </Grid>
+      </Grid>
+   </DockPanel>
+</Window>
