@@ -1,12 +1,9 @@
 ﻿using LandPlot.Commands.Base;
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LandPlot.Commands;
+
 internal class RelayCommand : BaseCommand
 {
     private readonly Action<object> _execute;

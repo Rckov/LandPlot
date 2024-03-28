@@ -15,6 +15,7 @@ internal class MainViewModel : BaseViewModel
     private readonly ICoordinateTransformer _transform;
 
     private Contour _selectedContour;
+
     private ObservableCollection<Contour> _contours = new();
     private ObservableCollection<UIElement> _canvasChildren = new();
 
@@ -28,7 +29,6 @@ internal class MainViewModel : BaseViewModel
     public ICommand ExportCommand { get; }
     public ICommand ScreenCommand { get; }
 
-    
     public Contour SelectedContour
     {
         get => _selectedContour;
