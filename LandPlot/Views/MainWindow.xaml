@@ -19,9 +19,9 @@
 
    <DockPanel>
       <Menu DockPanel.Dock="Top" BorderBrush="LightGray" BorderThickness="0,0,0,1">
-         <MenuItem Header="Импорт" />
-         <MenuItem Header="Экспорт" />
-         <MenuItem Header="Сохранить чертеж" />
+         <MenuItem Header="Импорт" Command="{Binding ImportCommand}" />
+         <MenuItem Header="Экспорт" Command="{Binding ExportCommand}" />
+         <MenuItem Header="Сохранить чертеж" Command="{Binding ScreenCommand}" />
          <MenuItem Header="Справка" />
       </Menu>
 
@@ -63,7 +63,7 @@
             </StackPanel>
 
             <DataGrid Grid.Row="1" Margin="0,0,0,5" />
-            <Button Content="Чертеж" Grid.Row="2" />
+            <Button Content="Чертеж" Grid.Row="2" Command="{Binding DrawCommand}" />
          </Grid>
 
          <Border Grid.Column="1" VerticalAlignment="Stretch" BorderBrush="LightGray" BorderThickness="0.5" />
