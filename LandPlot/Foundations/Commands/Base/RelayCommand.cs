@@ -1,8 +1,6 @@
-﻿using LandPlot.Commands.Base;
+﻿using System;
 
-using System;
-
-namespace LandPlot.Commands;
+namespace LandPlot.Foundations.Commands.Base;
 
 internal class RelayCommand : BaseCommand
 {

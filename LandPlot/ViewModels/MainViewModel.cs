@@ -1,4 +1,5 @@
-﻿using LandPlot.Models;
+﻿using LandPlot.Foundations.Commands;
+using LandPlot.Models;
 using LandPlot.ViewModels.Base;
 
 using LandPlotCoordinate;
@@ -20,10 +21,16 @@ internal class MainViewModel : BaseViewModel
     private ObservableCollection<Contour> _contours = new();
     private ObservableCollection<UIElement> _canvasChildren = new();
 
+    public MainViewModel()
+    {
+        DrawCommand = new DrawCommand(this);
+        ImportCommand = new ImportCommand(this);
+        ExportCommand = new ExportCommand(this);
+    }
+
     public ICommand DrawCommand { get; }
     public ICommand ImportCommand { get; }
     public ICommand ExportCommand { get; }
-    public ICommand ScreenCommand { get; }
 
     public Contour SelectedContour
     {

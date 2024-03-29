@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace LandPlot.Commands.Base;
+namespace LandPlot.Foundations.Commands.Base;
 
 internal abstract class BaseCommand : ICommand
 {
@@ -12,5 +12,6 @@ internal abstract class BaseCommand : ICommand
     }
 
     public abstract void Execute(object parameter);
+
     public abstract bool CanExecute(object parameter);
 }

@@ -21,7 +21,7 @@
       <Menu DockPanel.Dock="Top" BorderBrush="LightGray" BorderThickness="0,0,0,1">
          <MenuItem Header="Импорт" Command="{Binding ImportCommand}" />
          <MenuItem Header="Экспорт" Command="{Binding ExportCommand}" />
-         <MenuItem Header="Сохранить чертеж" Command="{Binding ScreenCommand}" />
+         <MenuItem Header="Сохранить чертеж" />
          <MenuItem Header="Справка" />
       </Menu>
 

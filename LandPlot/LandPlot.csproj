@@ -56,21 +56,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Commands\Base\BaseCommand.cs" />
-    <Compile Include="Commands\RelayCommand.cs" />
-    <Compile Include="Interfaces\ICoordinateDrawing.cs" />
+    <Compile Include="Foundations\Commands\Base\BaseCommand.cs" />
+    <Compile Include="Foundations\Commands\Base\RelayCommand.cs" />
+    <Compile Include="Foundations\Commands\DrawCommand.cs" />
+    <Compile Include="Foundations\Commands\ExportCommand.cs" />
+    <Compile Include="Foundations\Commands\ImportCommand.cs" />
+    <Compile Include="Foundations\Services\DrawingService.cs" />
+    <Compile Include="Foundations\Services\IDrawing.cs" />
     <Compile Include="Models\Contour.cs" />
-    <Compile Include="Services\CoordinateDrawing.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="Views\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="Views\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\MainWindow.xaml">
+    <Page Include="Views\MainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -106,6 +109,9 @@
       <Project>{6e994b83-bef6-409d-8e1a-c445afa47470}</Project>
       <Name>LandPlotCoordinate</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Foundations\Helpers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
