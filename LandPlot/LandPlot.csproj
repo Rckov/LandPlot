@@ -61,6 +61,7 @@
     <Compile Include="Foundations\Commands\DrawCommand.cs" />
     <Compile Include="Foundations\Commands\ExportCommand.cs" />
     <Compile Include="Foundations\Commands\ImportCommand.cs" />
+    <Compile Include="Foundations\Helpers\ContourParser.cs" />
     <Compile Include="Foundations\Services\DrawingService.cs" />
     <Compile Include="Foundations\Services\IDrawing.cs" />
     <Compile Include="Models\Contour.cs" />
@@ -110,8 +111,6 @@
       <Name>LandPlotCoordinate</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Foundations\Helpers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
