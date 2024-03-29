@@ -1,12 +1,14 @@
 ﻿using LandPlot.Interfaces;
 
+using LandPlotCoordinate.Interfaces;
+
 namespace LandPlot.Services;
 
 internal class CoordinateDrawing : ICoordinateDrawing
 {
-    private ICoordinateTransformer _transform;
+    private ITransform _transform;
 
-    public CoordinateDrawing(ICoordinateTransformer transform)
+    public CoordinateDrawing(ITransform transform)
     {
         _transform = transform;
     }

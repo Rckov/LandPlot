@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LandPlot", "LandPlot\LandPlot.csproj", "{91C3DE7D-BF28-4290-9ECC-1DABC1F2299D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LandPlotCoordinate", "LandPlotCoordinate\LandPlotCoordinate.csproj", "{6E994B83-BEF6-409D-8E1A-C445AFA47470}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{91C3DE7D-BF28-4290-9ECC-1DABC1F2299D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91C3DE7D-BF28-4290-9ECC-1DABC1F2299D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91C3DE7D-BF28-4290-9ECC-1DABC1F2299D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E994B83-BEF6-409D-8E1A-C445AFA47470}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E994B83-BEF6-409D-8E1A-C445AFA47470}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E994B83-BEF6-409D-8E1A-C445AFA47470}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E994B83-BEF6-409D-8E1A-C445AFA47470}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

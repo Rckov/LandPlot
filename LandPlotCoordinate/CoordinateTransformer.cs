@@ -1,28 +1,31 @@
-﻿using LandPlot.Interfaces;
-using LandPlot.Models;
-using LandPlot.Properties;
+﻿using LandPlotCoordinate.Interfaces;
+using LandPlotCoordinate.Models;
+using LandPlotCoordinate.Properties;
 
 using Proj4Net;
 
 using System.Collections.Generic;
-using System.Linq;
 using System.Xml.Linq;
 
-namespace LandPlot.Services;
+namespace LandPlotCoordinate;
 
-internal class CoordinateTransform : ICoordinateTransformer
+public class CoordinateTransformer : ITransform
 {
     private const string TargetCoordinateSystemKey = "EPSG:4326";
     private const string TargetCoordinateSystemParameters = "+proj=longlat +ellps=WGS84 +datum=WGS84 +units=degrees";
 
-    private readonly Dictionary<string, XElement> _coordinateSystems = new();
+    private readonly Dictionary<string, XElement> _coordinateSystems = [];
 
-    public CoordinateTransform()
+    public CoordinateTransformer()
     {
-        LoadSystems();
+        Load();
     }
 
-    public void LoadSystems()
+    public IEnumerable<string> Systems => _coordinateSystems.Keys;
+
+    public static CoordinateTransformer Instance { get; } = new CoordinateTransformer();
+
+    public void Load()
     {
         var root = XElement.Parse(Resources.CoordinateSystems);
 
@@ -37,26 +40,7 @@ internal class CoordinateTransform : ICoordinateTransformer
         }
     }
 
-    public IEnumerable<string> GetCoordinateSystems()
-    {
-        return _coordinateSystems.Keys;
-    }
-
-    public IEnumerable<Contour> TransformContours(IEnumerable<Contour> contours, string systemKey)
-    {
-        foreach (var contour in contours)
-        {
-            yield return TransformContour(contour, systemKey);
-        }
-    }
-
-    public Contour TransformContour(Contour contour, string systemKey)
-    {
-        var transformedCoordinates = contour.Coordinates.Select(c => TransformCoordinate(c, systemKey)).ToList();
-        return new Contour { Name = contour.Name, Coordinates = transformedCoordinates };
-    }
-
-    public Coordinate TransformCoordinate(Coordinate coordinate, string systemKey)
+    public Coordinate Transform(Coordinate coordinate, string systemKey)
     {
         var system = _coordinateSystems[systemKey];
 
@@ -72,10 +56,6 @@ internal class CoordinateTransform : ICoordinateTransformer
 
         coordinateTransform.Transform(sourcePoint, targetPoint);
 
-        return new Coordinate
-        {
-            X = targetPoint.X,
-            Y = targetPoint.Y
-        };
+        return new Coordinate(targetPoint.X, targetPoint.Y);
     }
 }

@@ -36,12 +36,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GeoAPI">
-      <HintPath>..\..\Новая папка\DrawPolygon\Shared\GeoAPI.dll</HintPath>
-    </Reference>
-    <Reference Include="Proj4Net">
-      <HintPath>..\..\Новая папка\DrawPolygon\Shared\Proj4Net.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -65,11 +59,8 @@
     <Compile Include="Commands\Base\BaseCommand.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Interfaces\ICoordinateDrawing.cs" />
-    <Compile Include="Interfaces\ICoordinateTransformer.cs" />
     <Compile Include="Models\Contour.cs" />
-    <Compile Include="Models\Coordinate.cs" />
     <Compile Include="Services\CoordinateDrawing.cs" />
-    <Compile Include="Services\CoordinateTransform.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
@@ -110,9 +101,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <None Include="Resources\CoordinateSystems.xml" />
+    <ProjectReference Include="..\LandPlotCoordinate\LandPlotCoordinate.csproj">
+      <Project>{6e994b83-bef6-409d-8e1a-c445afa47470}</Project>
+      <Name>LandPlotCoordinate</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

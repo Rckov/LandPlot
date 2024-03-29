@@ -1,7 +1,8 @@
-﻿using LandPlot.Interfaces;
-using LandPlot.Models;
-using LandPlot.Services;
+﻿using LandPlot.Models;
 using LandPlot.ViewModels.Base;
+
+using LandPlotCoordinate;
+using LandPlotCoordinate.Interfaces;
 
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,17 +13,12 @@ namespace LandPlot.ViewModels;
 
 internal class MainViewModel : BaseViewModel
 {
-    private readonly ICoordinateTransformer _transform;
+    private readonly ITransform _transform = CoordinateTransformer.Instance;
 
     private Contour _selectedContour;
 
     private ObservableCollection<Contour> _contours = new();
     private ObservableCollection<UIElement> _canvasChildren = new();
-
-    public MainViewModel()
-    {
-        _transform = new CoordinateTransform();
-    }
 
     public ICommand DrawCommand { get; }
     public ICommand ImportCommand { get; }
@@ -47,5 +43,5 @@ internal class MainViewModel : BaseViewModel
         set => Set(ref _contours, value);
     }
 
-    public IEnumerable<string> CoordinateSystems => _transform.GetCoordinateSystems();
+    public IEnumerable<string> CoordinateSystems => _transform.Systems;
 }
