@@ -5,11 +5,11 @@ using LandPlotCoordinate.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace LandPlot.Foundations.Helpers;
+namespace LandPlot.Foundations.Utils;
 
 internal class ContourParser
 {
-    private const char CoordinateSeparator = ',';
+    private const char CoordinateSeparator = ';';
 
     public IEnumerable<Contour> Parse(IEnumerable<string> lines)
     {

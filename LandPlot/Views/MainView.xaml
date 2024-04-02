@@ -26,7 +26,7 @@
       </Menu>
 
       <StatusBar DockPanel.Dock="Bottom" BorderBrush="LightGray" BorderThickness="0,1,0,0">
-         <StatusBarItem Content="Статус" HorizontalAlignment="Left" />
+         <StatusBarItem Content="{Binding Status}" HorizontalAlignment="Left" />
       </StatusBar>
 
       <Grid>
@@ -45,7 +45,7 @@
 
             <StackPanel Grid.Row="0">
                <Label Content="Система координат:" />
-               <ComboBox Margin="0,0,0,10" ItemsSource="{Binding CoordinateSystems}" />
+               <ComboBox Margin="0,0,0,10" ItemsSource="{Binding CoordinateSystems}" SelectedItem="{Binding SelectedSystem}" />
 
                <Label Content="Контуры:" />
                <ListBox Height="150" Margin="0,0,0,10"

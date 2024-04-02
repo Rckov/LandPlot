@@ -7,11 +7,11 @@ namespace LandPlot.Foundations.Commands;
 
 internal class ImportCommand : BaseCommand
 {
-    private MainViewModel _mainViewModel;
+    private MainViewModel _viewModel;
 
-    public ImportCommand(MainViewModel mainViewModel)
+    public ImportCommand(MainViewModel viewModel)
     {
-        _mainViewModel = mainViewModel;
+        _viewModel = viewModel;
     }
 
     public override void Execute(object parameter)

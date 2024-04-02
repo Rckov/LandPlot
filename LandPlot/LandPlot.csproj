@@ -35,6 +35,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon32x32.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -61,7 +64,7 @@
     <Compile Include="Foundations\Commands\DrawCommand.cs" />
     <Compile Include="Foundations\Commands\ExportCommand.cs" />
     <Compile Include="Foundations\Commands\ImportCommand.cs" />
-    <Compile Include="Foundations\Helpers\ContourParser.cs" />
+    <Compile Include="Foundations\Utils\ContourParser.cs" />
     <Compile Include="Foundations\Services\DrawingService.cs" />
     <Compile Include="Foundations\Services\IDrawing.cs" />
     <Compile Include="Models\Contour.cs" />
@@ -111,6 +114,8 @@
       <Name>LandPlotCoordinate</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="icon32x32.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

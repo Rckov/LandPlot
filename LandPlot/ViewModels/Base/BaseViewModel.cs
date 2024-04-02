@@ -14,6 +14,11 @@ internal abstract class BaseViewModel : INotifyPropertyChanged
 
     protected virtual bool Set<T>(ref T field, T value, [CallerMemberName] string PropertyName = null)
     {
+        if (value == null)
+        {
+            return false;
+        }
+
         if (Equals(field, value))
         {
             return false;

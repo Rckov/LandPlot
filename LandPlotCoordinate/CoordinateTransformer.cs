@@ -14,7 +14,7 @@ public class CoordinateTransformer : ITransform
     private const string TargetCoordinateSystemKey = "EPSG:4326";
     private const string TargetCoordinateSystemParameters = "+proj=longlat +ellps=WGS84 +datum=WGS84 +units=degrees";
 
-    private readonly Dictionary<string, XElement> _coordinateSystems = [];
+    private readonly Dictionary<string, XElement> _coordinateSystems = new();
 
     public CoordinateTransformer()
     {
