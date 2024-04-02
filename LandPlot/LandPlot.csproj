@@ -64,9 +64,13 @@
     <Compile Include="Foundations\Commands\DrawCommand.cs" />
     <Compile Include="Foundations\Commands\ExportCommand.cs" />
     <Compile Include="Foundations\Commands\ImportCommand.cs" />
-    <Compile Include="Foundations\Utils\ContourParser.cs" />
+    <Compile Include="Foundations\Commands\ScreenCommand.cs" />
+    <Compile Include="Foundations\Helpers\DialogHelper.cs" />
+    <Compile Include="Foundations\Helpers\ImageHelper.cs" />
+    <Compile Include="Foundations\Interfaces\ILoader.cs" />
+    <Compile Include="Foundations\Services\LoadService.cs" />
     <Compile Include="Foundations\Services\DrawingService.cs" />
-    <Compile Include="Foundations\Services\IDrawing.cs" />
+    <Compile Include="Foundations\Interfaces\IDrawing.cs" />
     <Compile Include="Models\Contour.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />

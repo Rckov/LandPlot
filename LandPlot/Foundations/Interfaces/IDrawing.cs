@@ -3,7 +3,7 @@
 using System.Collections.Generic;
 using System.Windows.Controls;
 
-namespace LandPlot.Foundations.Services;
+namespace LandPlot.Foundations.Interfaces;
 
 internal interface IDrawing
 {

@@ -1,4 +1,5 @@
 ﻿using LandPlot.Foundations.Commands.Base;
+using LandPlot.Foundations.Interfaces;
 using LandPlot.Foundations.Services;
 using LandPlot.Models;
 using LandPlot.ViewModels;
@@ -44,7 +45,7 @@ internal class DrawCommand : BaseCommand
 
     public override bool CanExecute(object parameter)
     {
-        return _viewModel.CanvasChildren.Any();
+        return _viewModel.Contours.Any();
     }
 
     private IEnumerable<Contour> TransformContours(IEnumerable<Contour> contours, string system)

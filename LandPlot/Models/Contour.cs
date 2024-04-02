@@ -7,5 +7,5 @@ namespace LandPlot.Models;
 internal class Contour
 {
     public string Name { get; set; }
-    public List<Coordinate> Coordinates { get; set; }
+    public List<Coordinate> Coordinates { get; set; } = new();
 }

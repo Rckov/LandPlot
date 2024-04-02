@@ -15,13 +15,16 @@
       <Style TargetType="{x:Type Label}">
          <Setter Property="Padding" Value="0,0,0,2" />
       </Style>
+      <Style x:Key="DataGridCellStyle" TargetType="DataGridCell">
+         <Setter Property="BorderThickness" Value="0" />
+      </Style>
    </Window.Resources>
 
    <DockPanel>
       <Menu DockPanel.Dock="Top" BorderBrush="LightGray" BorderThickness="0,0,0,1">
          <MenuItem Header="Импорт" Command="{Binding ImportCommand}" />
          <MenuItem Header="Экспорт" Command="{Binding ExportCommand}" />
-         <MenuItem Header="Сохранить чертеж" />
+         <MenuItem Header="Сохранить чертеж" Command="{Binding ScreenCommand}" />
          <MenuItem Header="Справка" />
       </Menu>
 
@@ -62,14 +65,24 @@
                <Label Content="Координаты:" />
             </StackPanel>
 
-            <DataGrid Grid.Row="1" Margin="0,0,0,5" />
+            <DataGrid Grid.Row="1" Margin="0,0,0,5" ItemsSource="{Binding SelectedContour.Coordinates}"
+                     CanUserResizeColumns="False" CanUserResizeRows="False" CanUserAddRows="False"
+                     CanUserDeleteRows="False" CanUserSortColumns="False" IsReadOnly="True"
+                     CanUserReorderColumns="False" SelectionMode="Single" ColumnWidth="50*"
+                     AutoGenerateColumns="False" HeadersVisibility="Column" CellStyle="{StaticResource DataGridCellStyle}">
+
+               <DataGrid.Columns>
+                  <DataGridTextColumn Header="X" Binding="{Binding Path=X}" />
+                  <DataGridTextColumn Header="Y" Binding="{Binding Path=Y}" />
+               </DataGrid.Columns>
+            </DataGrid>
             <Button Content="Чертеж" Grid.Row="2" Command="{Binding DrawCommand}" />
          </Grid>
 
          <Border Grid.Column="1" VerticalAlignment="Stretch" BorderBrush="LightGray" BorderThickness="0.5" />
 
          <Grid Grid.Column="2">
-            <Canvas Width="450" Height="450" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            <Image Source="{Binding Image.Source}" Width="450" Height="450" Grid.Column="2" />
          </Grid>
       </Grid>
    </DockPanel>

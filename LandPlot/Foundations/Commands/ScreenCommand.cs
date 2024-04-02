@@ -1,38 +1,34 @@
 ﻿using LandPlot.Foundations.Commands.Base;
 using LandPlot.Foundations.Helpers;
-using LandPlot.Foundations.Utils;
 using LandPlot.ViewModels;
-
-using System.Linq;
 
 namespace LandPlot.Foundations.Commands;
 
-internal class ExportCommand : BaseCommand
+internal class ScreenCommand : BaseCommand
 {
     private readonly MainViewModel _viewModel;
 
-    public ExportCommand(MainViewModel viewModel)
+    public ScreenCommand(MainViewModel viewModel)
     {
         _viewModel = viewModel;
     }
 
     public override async void Execute(object parameter)
     {
-        var filePath = DialogHelper.SaveDialog("Файл с координатами|*.txt");
+        var filePath = DialogHelper.SaveDialog("Чертеж |*.png");
 
         if (string.IsNullOrEmpty(filePath))
         {
             return;
         }
 
-        var load = new LoadService();
-        load.Save(_viewModel.Contours, filePath);
+        ImageHelper.SaveImageToFile(_viewModel.Image, filePath);
 
-        await _viewModel.SetDelayStatus($"Файл сохранен по пути {filePath}");
+        await _viewModel.SetDelayStatus($"файл сохранен по пути {filePath}");
     }
 
     public override bool CanExecute(object parameter)
     {
-        return _viewModel.Contours.Any();
+        return _viewModel.Image != null && _viewModel.Image.Source != null;
     }
 }

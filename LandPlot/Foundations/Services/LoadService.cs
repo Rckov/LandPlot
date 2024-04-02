@@ -1,24 +1,40 @@
-﻿using LandPlot.Models;
+﻿using LandPlot.Foundations.Interfaces;
+using LandPlot.Models;
 
 using LandPlotCoordinate.Models;
 
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace LandPlot.Foundations.Utils;
 
-internal class ContourParser
+internal class LoadService : ILoader
 {
     private const char CoordinateSeparator = ';';
 
-    public IEnumerable<Contour> Parse(IEnumerable<string> lines)
+    public void Save(IEnumerable<Contour> contours, string filePath)
+    {
+        using var writer = new StreamWriter(filePath);
+
+        foreach (var contour in contours)
+        {
+            foreach (var coordinate in contour.Coordinates)
+            {
+                writer.WriteLine($"{coordinate.X}{CoordinateSeparator}{coordinate.Y}");
+            }
+            writer.WriteLine();
+        }
+    }
+
+    public IEnumerable<Contour> Load(string filePath)
     {
         var contours = new List<Contour>();
         var currentContour = new Contour();
 
         int contourIndex = 0;
 
-        foreach (var line in lines)
+        foreach (var line in File.ReadLines(filePath))
         {
             if (string.IsNullOrWhiteSpace(line))
             {
