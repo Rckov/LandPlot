@@ -23,4 +23,4 @@
    - После создания точечного плана, пользователь может экспортировать данные для дальнейшего использования.
    - Возможность экспорта самого чертежа изображение.
    - 
-[Скачать сборку]([link](https://github.com/Rckov/LandPlot/releases/download/LandPlot/LandPlot.zip))
+[Скачать сборку](https://github.com/Rckov/LandPlot/releases/download/LandPlot/LandPlot.zip)
