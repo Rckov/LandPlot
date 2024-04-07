@@ -25,7 +25,7 @@ internal class ImportCommand : BaseCommand
             return;
         }
 
-        var load = new LoadService();
+        var load = new LoadService();//TODO подобное лучше делать в viewModel, а тут в конструкторе требовать переменную типа интерфейса. viewModel это типа точка распределения всех ответственностей. Некоторые при создании экземпляра viewModel на уровне view делают такое черз конструктор. Но у тебя привязка в xaml сделана. А некоторые не паряться и используют di-контейнеры)
         var contours = load.Load(filePath);
 
         if (contours.Any())

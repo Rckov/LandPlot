@@ -22,7 +22,7 @@ internal class ScreenCommand : BaseCommand
             return;
         }
 
-        ImageHelper.SaveImageToFile(_viewModel.Image, filePath);
+        ImageHelper.SaveImageToFile(_viewModel.Image, filePath);//TODO Можно наверно сделать какой-нибудь local storage, т.е. еще один сервис который будет сохранять файла. А как он это делает уже не важно, в файл или в базу. Хэлперы мне не особо нравятся, чаще всего в них скидывают то, что никуда больше не пришлось. При таком подходе они слишком быстро разрастаются.
 
         await _viewModel.SetDelayStatus($"файл сохранен по пути {filePath}");
     }
