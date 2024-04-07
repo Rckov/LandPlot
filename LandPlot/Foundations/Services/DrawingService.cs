@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 
 namespace LandPlot.Foundations.Services;
 
-internal class DrawingService : IDrawing
+internal class DrawingService : IDrawing//TODO Тут идет привязка к элементам windows по типу WriteableBitmap, Image и т.д. Поэтому коровую бизнес логику лучше держать на уровне моделей или же других сервисов, которые не находятся на уровне приложения. Подобный подход даст использовать бизнес логику приложения на любых платформах и представлениях. Но тут такое не требуется так что ладно. А так все взаимодействие с контролами должно быть на viewModel реализовано. 
 {
     private const int DefaultWidth = 450;
     private const int DefaultHeight = 450;

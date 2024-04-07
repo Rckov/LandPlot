@@ -9,7 +9,7 @@ using System.Xml.Linq;
 
 namespace LandPlotCoordinate;
 
-public class CoordinateTransformer : ITransform
+public class CoordinateTransformer : ITransform//TODO Для этого прям отдельная библиотека нужна? Не помню, мб ты хотел в другом проекте ее еще использовать.
 {
     private const string TargetCoordinateSystemKey = "EPSG:4326";
     private const string TargetCoordinateSystemParameters = "+proj=longlat +ellps=WGS84 +datum=WGS84 +units=degrees";
